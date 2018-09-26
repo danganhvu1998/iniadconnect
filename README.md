@@ -11,6 +11,7 @@
         * Image
         * CardImage
         * Type (_1: student, 2:teacher, 3:me_)
+        * Language
         * Point
         * Token
         * Timestamps
