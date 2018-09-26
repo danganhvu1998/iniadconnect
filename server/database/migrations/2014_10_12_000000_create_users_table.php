@@ -17,11 +17,12 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->integer('language')->default('0');//Japanese
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('image')->nullable();
+            $table->string('image')->default('cover_default.png');
             $table->string('card_image')->nullable();
-            $table->integer('type');
+            $table->integer('type')->default('0');//Unconfirmed User
             $table->rememberToken();
             $table->timestamps();
         });

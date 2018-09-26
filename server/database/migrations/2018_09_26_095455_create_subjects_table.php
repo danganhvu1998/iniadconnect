@@ -19,7 +19,7 @@ class CreateSubjectsTable extends Migration
             $table->integer('type');
             $table->string('code')->nullable();
             $table->string('name');
-            $table->text('quote')->nullable();
+            $table->text('quote')->default('I am happy!');
             $table->string('image')->nullable();
             $table->string('cover_image')->nullable();
             $table->timestamps();

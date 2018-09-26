@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
             $table->integer("user_id");
             $table->integer("master_post_id");
             $table->integer("upper_post_id");
-            $table->integer('upvote');
-            $table->integer('gold');
+            $table->integer('upvote')->default(0);
+            $table->integer('gold')->default(0);
             $table->integer("level")->nullable();
             $table->string('title');
             $table->text('content')->nullable();
