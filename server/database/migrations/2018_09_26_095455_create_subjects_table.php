@@ -15,9 +15,13 @@ class CreateSubjectsTable extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('type');
             $table->string('code')->nullable();
             $table->string('name');
+            $table->text('quote')->nullable();
             $table->string('image')->nullable();
+            $table->string('cover_image')->nullable();
             $table->timestamps();
         });
     }
