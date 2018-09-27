@@ -84,9 +84,14 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                                <li>{{ __($error) }}</li>
                             @endforeach
                         </ul>
+                    </div>
+                @endif
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ __(session()->get('message')) }}
                     </div>
                 @endif
                 @yield('content')

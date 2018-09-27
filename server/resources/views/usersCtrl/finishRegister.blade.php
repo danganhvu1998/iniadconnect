@@ -16,6 +16,7 @@
             <span class="input-group-text">{{__('messages.fullname')}}</span>
         </div>
         {{Form::text("user_name", Auth::user()->name, ['class'=>'form-control', 'placeholder' => __('messages.fullname')])}}
+        {{Form::select('language', [0 => "日本語", 1 => 'English'], Auth::user()->language)}}
         {{Form::submit('Save', ['class' => 'btn btn-outline-primary'])}}
     </div>
     {!! Form::close() !!}
@@ -26,7 +27,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text">{{__('messages.userCurrentPassword')}}</span>
         </div>
-        {{Form::text("user_old_password", "", ['class'=>'form-control', 'placeholder' => __('messages.userCurrentPassword')])}}
+        {{Form::password("user_old_password", ['class'=>'form-control', 'placeholder' => __('messages.userCurrentPassword')])}}
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">

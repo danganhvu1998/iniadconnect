@@ -26,9 +26,10 @@ class UsersController extends Controller
         $userID = Auth::user()->id;
         User::where("id", $userID)
             ->update([
-                "name" => $request->user_name
+                "name" => $request->user_name,
+                "language" => $request->language,
             ]);
-        return redirect('/user/view');
+        return redirect('/user/setting/setting')->with("message", "messages.informationChanged");
     }
 
     public function userSettingPasswordChange(request $request){
@@ -38,7 +39,10 @@ class UsersController extends Controller
         ]);
 
         $userID = Auth::user()->id;
-        $userHashedPassword = Hash::make($request->user_old_password);
+        if(!Hash::check($request->user_old_password, Auth::user()->password)){
+            return redirect('/user/setting/setting')->withErrors("messages.wrongPassword");
+            #return redirect('/user/setting/setting')->withErrors(Auth::user()->password);
+        }
         // Working on return error if oldPassword is wrong
 
         //
@@ -46,7 +50,7 @@ class UsersController extends Controller
             ->update([
                 "password" => Hash::make($request->user_new_password)
             ]);
-        return redirect('/user/view');
+        return redirect('/user/setting/setting')->with("message", "messages.informationChanged");
     }
 
     public function userSettingImageChange(request $request){
@@ -68,9 +72,7 @@ class UsersController extends Controller
 
             $user = User::where("id", $userID)
                 ->update(["image" => $fileNameToStore]);
-            return redirect('/user/view');
-        } else {
-            return redirect('/user/setting');
+                return redirect('/user/setting/setting')->with("message", "messages.informationChanged");
         }
     }
 }
