@@ -31,14 +31,21 @@
     * Posts Table
         * ID
         * UserID
-        * MasterPostID
-        * UpperPostID (_zero if is master post_)
+        * SubjectID
         * Upvote (_Welcome to redINIAD_)
         * Gold (_Welcome to redINIAD, under thinking_)
-        * Level (_lazy, not use yet_)
         * Title
         * Content
         * Image
         * MoreImage (_I know this is stupid, trying to fix_)
+        * Timestamps
+    
+    * Comments Table
+        * ID
+        * UserID
+        * PostID
+        * Point
+        * Gold
+        * Content
         * Timestamps
 
