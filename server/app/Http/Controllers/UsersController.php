@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\Storage;
 use App\User;
 
 class UsersController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function finishRegisterSite(){
         return view("usersCtrl.finishRegister");
     }

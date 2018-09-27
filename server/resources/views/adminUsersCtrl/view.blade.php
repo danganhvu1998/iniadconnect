@@ -1,5 +1,19 @@
 @extends('layouts.admin')
 @section('content')
+    <div class="row">
+        <div class="col-md-5">
+            <h3>Admin Users Controller</h3>
+        </div>
+        <div class="col-md-7">
+            <div class="text-center btn-group">
+                <a href="/admin/user/view/1" class="btn btn-primary">Student</a>
+                <a href="/admin/user/view/2" class="btn btn-primary">Teacher</a>
+                <a href="/admin/user/view/0" class="btn btn-primary">Pending</a>
+                <a href="/admin/user/view/-1" class="btn btn-primary">Conflict</a>
+                <a href="/admin/user/view/-2" class="btn btn-primary">Banned</a>
+            </div>
+        </div>
+    </div><br>
     @foreach ($users as $user)
         <div class="card bg-light">
             <div class="row text-center">
@@ -10,10 +24,10 @@
                     <strong>{{$user->name}}</strong><br>
                     {{$user->email}}<br>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <img src="/storage/file/{{$user->card_image}}" alt="{{$user->card_image}}" height="100">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="btn-group btn-block">
                         <a href="/storage/file/{{$user->card_image}}" class="btn btn-secondary">View Card</a>
                         <a href="/admin/user/confirm/1/{{$user->id}}" class="btn btn-primary">Student</a>

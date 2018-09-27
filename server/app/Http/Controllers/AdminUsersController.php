@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class AdminUsersController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware(['auth', 'checkAdmin']);
+    }
+
     public function usersViewSite($userType){
         $users = User::where("type", $userType)->get();
         return view("adminUsersCtrl.view")->with("users", $users);
