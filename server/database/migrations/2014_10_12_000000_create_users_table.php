@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->integer('point')->default('0');
             $table->integer('language')->default('0');//Japanese
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

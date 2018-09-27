@@ -20,7 +20,8 @@
         * ID
         * Code (_school subject code_)
         * UserID
-        * Type (_0: Close <==> 1: Open_)
+        * Open (_0: Close <==> 1: Open_)
+        * Type (_0: School subject, 1: Project, 2: Personal Page_)
         * Name
         * Quote
         * Image
