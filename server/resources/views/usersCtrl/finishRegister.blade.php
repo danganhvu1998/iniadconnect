@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>INFOMATION SETTING</h3>
-    @if (Auth::user()->status == 0)
+    <h3>{{__('messages.informationSetting')}}</h3>
+    @if (Auth::user()->type == 0)
         <b class="text-primary"> {{__('messages.waitAdminConfirmNewUser')}} </b>
-    @elseif (Auth::user()->status == -1)
+    @elseif (Auth::user()->type == -1)
         <b class="text-danger"> {{__('messages.adminRejectedNewUser')}} </b>
-    @elseif (Auth::user()->status == -2)
+    @elseif (Auth::user()->type == -2)
         <b class="text-danger"> {{__('messages.adminBannedUser')}} </b>
     @endif
     <!--Change Name-->
@@ -41,8 +41,19 @@
 
     <!--Change Image--> <hr>
     {!! Form::open(['action' => 'UsersController@userSettingImageChange', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-        <b>Profile Picture</b><br>
+        <b>{{__('messages.userProfilePicture')}}</b><br>
         <img src="/storage/file/{{Auth::user()->image}}" height="100" alt="{{Auth::user()->image}}">   
+        {{Form::file('file')}}
+    {{Form::submit('UPLOAD (Maximum 2MB)', ['class' => 'btn btn-outline-primary'])}}
+    {!! Form::close() !!}
+
+    <!--Change Card Image--> <hr>
+    @if (!isset(Auth::user()->card_image))
+        <p><b class="text-danger">{{__('messages.haveToProveStudentCard')}}</b></p>
+    @endif
+    {!! Form::open(['action' => 'UsersController@userSettingCardImageChange', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        <b>{{__('messages.userCardPicture')}}</b><br>
+        <img src="/storage/file/{{Auth::user()->card_image}}" height="100" alt="{{Auth::user()->card_image}}">   
         {{Form::file('file')}}
     {{Form::submit('UPLOAD (Maximum 2MB)', ['class' => 'btn btn-outline-primary'])}}
     {!! Form::close() !!}

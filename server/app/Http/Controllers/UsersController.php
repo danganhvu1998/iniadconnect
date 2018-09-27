@@ -75,4 +75,25 @@ class UsersController extends Controller
                 return redirect('/user/setting/setting')->with("message", "messages.informationChanged");
         }
     }
+
+    public function userSettingCardImageChange(request $request){
+        $request->validate([
+            'file' => 'required|image',
+        ]);
+        $userID = Auth::user()->id;
+        $userImage = Auth::user()->card_image;
+        //Delete Cover Image
+        Storage::delete('public/file/'.$userImage);
+
+        if($request->hasFile('file')){
+            // Filename to store
+            $fileNameToStore = 'card_'.time().'_'.$request->file('file')->getClientOriginalName();
+            // Upload File
+            $path = $request->file('file')->storeAs('public/file', $fileNameToStore);
+
+            $user = User::where("id", $userID)
+                ->update(["card_image" => $fileNameToStore]);
+                return redirect('/user/setting/setting')->with("message", "messages.informationChanged");
+        }
+    }
 }
