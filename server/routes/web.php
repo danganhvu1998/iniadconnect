@@ -32,7 +32,22 @@ Route::post('/user/setting/card_image', 'UsersController@userSettingCardImageCha
 
 Route::get('/user/view', 'UsersController@userViewingSite');
 
-//
+// Subject Controller
+Route::get('/subject/view', "SubjectsController@subjectSchoolViewingSite");
+
+Route::get('/project/view', "SubjectsController@subjectProjectViewingSite");
+
+Route::get('/subject/add/{subjectType}', "SubjectsController@subjectAddingSite");
+
+Route::post('/subject/add', "SubjectsController@subjectAdding");
+
+Route::get('/subject/edit/{subjectID}', "SubjectsController@subjectEdittingSite");
+
+Route::post('/subject/edit/info', "SubjectsController@subjectEdittingInfo");
+
+Route::post('/subject/edit/image', "SubjectsController@subjectEdittingImage");
+
+Route::post('/subject/edit/cover_image', "SubjectsController@subjectEdittingCoverImage");
 
 //            \\
 #              #

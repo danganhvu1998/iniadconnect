@@ -39,7 +39,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @if (Auth::user()->type>0)
+                            <li><a class="nav-link" href="/subject/view"><b>SUBJECT</b></a></li>
+                            <li><a class="nav-link" href="/project/view"><b>PROJECT</b></a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
