@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <h3>{{__("messages.edit")}}</h3>
     {!! Form::open(['action' => 'SubjectsController@subjectEdittingInfo', 'method' => 'POST']) !!}
         {{Form::hidden("subjectID", $subject->id)}}
         <div class="input-group mb-3">

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 use App\Subjects;
+use App\Posts;
 
 class SubjectsController extends Controller
 {
@@ -136,8 +137,12 @@ class SubjectsController extends Controller
     }
 
     public function subjectVisitingSite($subjectID){
+        $posts = Posts::where("subject_id", $subjectID)->orderBy("id", "desc")->get();
         $subject = Subjects::where("id", $subjectID)->first();
-        $data = array("subject" => $subject);
+        $data = array(
+            "subject" => $subject,
+            "posts" => $posts,
+        );
         return view("subjectsCtrl.visit")->with($data);
     }
 

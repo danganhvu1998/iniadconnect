@@ -52,6 +52,27 @@ Route::post('/subject/edit/cover_image', "SubjectsController@subjectEdittingCove
 Route::get('/subject/visit/{subjectID}', "SubjectsController@subjectVisitingSite");
 
 // Post Controller
+Route::post('/post/add', "PostsController@postAdding");
+
+Route::get('/post/edit/{postID}', "PostsController@postEditingSite");
+
+Route::post('/post/edit', "PostsController@postEditing");
+
+Route::get('/post/delete/{postID}', "PostsController@postDeletingSite");
+
+Route::get('/post/view/{postID}', "PostsController@postViewingSite");
+
+// Comment Controller
+Route::post('/comment/add', "CommentsController@commentAdding");
+
+#Route::get('/comment/edit/{commentID}', "CommentsController@commentEditingSite");
+
+#Route::post('/comment/edit', "CommentsController@commentEditing");
+
+Route::get('/comment/delete/{commentID}', "CommentsController@commentDeletingSite");
+
+#Route::get('comment/view/{commentID}', "CommentsController@commentViewingSite");
+
 
 //            \\
 #              #
