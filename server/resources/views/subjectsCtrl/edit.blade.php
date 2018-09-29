@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>{{__("messages.edit")}}</h3>
+    <div class="row">
+        <div class="col-md-8">
+            <h3>{{__("messages.edit")}}</h3>
+        </div>
+        <div class="col-md-4">
+            <a href="/subject/visit/{{$subject->id}}" class="btn btn-primary btn-block">{{__("messages.back")}}</a>
+        </div>
+    </div>
     {!! Form::open(['action' => 'SubjectsController@subjectEdittingInfo', 'method' => 'POST']) !!}
         {{Form::hidden("subjectID", $subject->id)}}
         <div class="input-group mb-3">
