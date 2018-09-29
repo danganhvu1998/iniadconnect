@@ -19,17 +19,21 @@
     </div><hr>
     <div class="card-columns">
         @foreach ($subjects as $subject)
-            <div class="card-header">
-                <a href="/subject/edit/{{$subject->id}}"><b>{{$subject->name}}</b></a><br>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="/storage/file/{{$subject->image}}" alt="{{$subject->image}}" width="150" height="150">
+            <div class="card bg-light">
+                <div class="card-header">
+                    <a href="/subject/visit/{{$subject->id}}"><b>{{$subject->name}}</b></a><br>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="/subject/visit/{{$subject->id}}">
+                                <img src="/storage/file/{{$subject->image}}" alt="{{$subject->image}}" width="100" height="100">
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                            {{$subject->quote}}
+                        </div> 
                     </div>
-                    <div class="col-md-8">
-                        {{$subject->quote}}
-                    </div> 
                 </div>
             </div>
         @endforeach

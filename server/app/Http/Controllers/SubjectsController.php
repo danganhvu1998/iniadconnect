@@ -43,7 +43,7 @@ class SubjectsController extends Controller
 
         $request->validate([
             'subjectName' => 'required|max:50',
-            'subjectQuote' => 'required|max:255 ',
+            'subjectQuote' => 'required|max:200',
             'subjectType' => 'required',
             'subjectOpen' => 'required',
         ]);
@@ -70,6 +70,12 @@ class SubjectsController extends Controller
         if(!$this->checkSubjectPermission($request->subjectID)){
             return back()->withErrors("Permission Denied");
         }
+        $request->validate([
+            'subjectName' => 'required|max:50',
+            'subjectQuote' => 'required|max:200',
+            'subjectOpen' => 'required',
+        ]);
+
         Subjects::where("id", $request->subjectID)
             ->update([
                 "name" => $request->subjectName,
@@ -129,7 +135,14 @@ class SubjectsController extends Controller
         }
     }
 
+    public function subjectVisitingSite($subjectID){
+        $subject = Subjects::where("id", $subjectID)->first();
+        $data = array("subject" => $subject);
+        return view("subjectsCtrl.visit")->with($data);
+    }
+
     public function checkSubjectPermission($subjectID){
+        if(Auth::user()->type == 3) return 1;
         $ownerID = Subjects::where("id", $subjectID)->first()->user_id;
         if($ownerID!=Auth::user()->id){
             return 0;

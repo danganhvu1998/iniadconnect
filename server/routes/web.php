@@ -49,6 +49,10 @@ Route::post('/subject/edit/image', "SubjectsController@subjectEdittingImage");
 
 Route::post('/subject/edit/cover_image', "SubjectsController@subjectEdittingCoverImage");
 
+Route::get('/subject/visit/{subjectID}', "SubjectsController@subjectVisitingSite");
+
+// Post Controller
+
 //            \\
 #              #
 #              # 
