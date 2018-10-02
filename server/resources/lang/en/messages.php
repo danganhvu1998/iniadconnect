@@ -1,11 +1,11 @@
 <?php
 
-// resources/lang/ja/messages.php
+// resources/lang/en/messages.php
 
 return [
     'welcome' => 'Welcome to our application',
     'dashboard' => 'Dashboard',
-    'logout' => 'ログアウト',
+    'logout' => 'Logout',
     'waitAdminConfirmNewUser' => 'Please wait until admin approve your register request. And don\'t forger that you HAVE TO upload your student card',
     'adminRejectedNewUser' => 'Something not right in your infomation. Please carefully check again',
     'adminBannedUser' => 'You were banned because of bad online behavior. Please do not repeat it after we allow you to continue',
@@ -21,5 +21,28 @@ return [
     'informationSetting' => 'INFORMATION SETTING ', 
     'userProfilePicture' => 'Profile Picture',
     'userCardPicture' => 'Student Card Image (not public)',
-];
+    'post' => 'Post ',
+    'title' => 'Title',
+    'edit' => 'Edit ',
+    'editSubject' => 'Edit Project',
+    'aboutUs' => 'About Us',
+    'donate' => 'Donate ',
+    'goodDayToWrite' => 'Today is a good day to write something beautiful! ',
+    'preview' => 'Preview ',
+    'subject' => 'SUBJECT ',
+    'project' => 'PROJECT ',
+    'addNewProject' => 'ADD YOUR NEW PROJECT',
+    'name' => 'Name ',
+    'quote' => 'Quote',
+    'closeSubject' => 'Close (Only you can post)',
+    'openSubject' => 'Open (Anyone can post)',
+    'add' => 'Add',
+    'haveToProveStudentCard' => 'For security reason, you have to upload your student card image!',
+    'schoolSubject' => 'School Subject', 
+    'projectSubject' => 'Project ',
+    'save' => 'Save',
+    'goodDayToComment' => 'What a good day to comment something beautiful',
+    'comment' => 'Comment',
+    'deleteComment' => 'Delete this comment', 
+];  
 // '' => '',

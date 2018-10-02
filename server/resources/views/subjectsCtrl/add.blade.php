@@ -1,6 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
+    <h3>{{__("messages.addNewProject")}}</h3>
     {!! Form::open(['action' => 'SubjectsController@subjectAdding', 'method' => 'POST']) !!}
         {{Form::hidden("subjectType", $subjectType)}}
         <div class="input-group mb-3">
@@ -16,6 +17,6 @@
             </div>
             {{Form::text("subjectQuote", "",['class'=>'form-control'])}}
         </div>
-        {{Form::submit('Add', ['class' => 'btn btn-outline-primary'])}}
+        {{Form::submit(__("messages.add"), ['class' => 'btn btn-outline-primary'])}}
     {!! Form::close() !!}
 @endsection

@@ -10,7 +10,7 @@
                     <span class="input-group-text">{{__('messages.title')}}</span>
                 </div>
                 {{Form::text("postTitle", $post->title,['class'=>'form-control', "placeholer" => __('messages.title')])}}
-                {{Form::submit('Edit', ['class' => 'btn btn-outline-primary'])}}
+                {{Form::submit(__('messages.edit'), ['class' => 'btn btn-outline-primary'])}}
             </div>
             {{Form::textarea("postContent", $post->content,['class'=>'form-control', "rows"=> "4", "placeholder" => __('messages.goodDayToWrite')])}}
             {{Form::file('file1')}}{{Form::file('file2')}}

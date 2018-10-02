@@ -17,7 +17,7 @@
         </div>
         {{Form::text("user_name", Auth::user()->name, ['class'=>'form-control', 'placeholder' => __('messages.fullname')])}}
         {{Form::select('language', [0 => "日本語", 1 => 'English'], Auth::user()->language)}}
-        {{Form::submit('Save', ['class' => 'btn btn-outline-primary'])}}
+        {{Form::submit(__('messages.save'), ['class' => 'btn btn-outline-primary'])}}
     </div>
     {!! Form::close() !!}
 
@@ -34,7 +34,7 @@
             <span class="input-group-text">{{__('messages.userNewPassword')}}</span>
         </div>
         {{Form::text("user_new_password", "", ['class'=>'form-control', 'placeholder' => __('messages.userNewPassword')])}}
-        {{Form::submit('Save', ['class' => 'btn btn-outline-primary'])}}
+        {{Form::submit(__('messages.save'), ['class' => 'btn btn-outline-primary'])}}
     </div>
     
     {!! Form::close() !!}

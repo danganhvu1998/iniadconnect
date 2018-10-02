@@ -37,7 +37,7 @@
                                 <span class="input-group-text">{{__('messages.title')}}</span>
                             </div>
                             {{Form::text("postTitle", "",['class'=>'form-control', "placeholer" => __('messages.title')])}}
-                            {{Form::submit('Post', ['class' => 'btn btn-outline-primary'])}}
+                            {{Form::submit(__("messages.post"), ['class' => 'btn btn-outline-primary'])}}
                         </div>
                         {{Form::textarea("postContent", "",['class'=>'form-control', "rows"=> "4", "placeholder" => __('messages.goodDayToWrite')])}}
                         {{Form::file('file1')}}{{Form::file('file2')}}
@@ -49,7 +49,7 @@
                 <div class="card bg-muted">
                     <div class="card-header">
                         @if (Auth::user()->id == $subject->user_id)
-                            <a href="/post/edit/{{$post->id}}" class="btn btn-primary">Edit</a> 
+                            <a href="/post/edit/{{$post->id}}" class="btn btn-primary">{{__("messages.edit")}}</a> 
                         @endif
                         <img src="/storage/file/{{$subject->image}}" height="35" width="35" alt="{{$subject->cover_image}}">
                         <a href="/post/view/{{$post->id}}"><b class="text-dark">{{$post->title}}</b></a>

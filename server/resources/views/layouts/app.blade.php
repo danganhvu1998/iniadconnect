@@ -41,8 +41,8 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                             @if (Auth::user()->type>0)
-                                <li><a class="nav-link" href="/subject/view"><b>SUBJECT</b></a></li>
-                                <li><a class="nav-link" href="/project/view"><b>PROJECT</b></a></li>
+                                <li><a class="nav-link" href="/subject/view"><b>{{__("messages.subject")}}</b></a></li>
+                                <li><a class="nav-link" href="/project/view"><b>{{__("messages.project")}}</b></a></li>
                             @endif
                         @endauth
                     </ul>

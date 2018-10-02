@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-8">
             @if ($subjectType == 0)
-                <h3>{{__("messages.choolSubject")}}</h3>
+                <h3>{{__("messages.schoolSubject")}}</h3>
             @elseif ($subjectType == 1)
                 <h3>{{__("messages.projectSubject")}}</h3>
             @else 
@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-4">
             @if ($subjectType == 1)
-                <a href="/subject/add/1" class="btn btn-primary btn-block">ADD YOUR NEW PROJECT</a>
+                <a href="/subject/add/1" class="btn btn-primary btn-block">{{__("messages.addNewProject")}}</a>
             @endif
         </div>
     </div><hr>
