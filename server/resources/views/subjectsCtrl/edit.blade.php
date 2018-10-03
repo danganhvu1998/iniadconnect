@@ -31,7 +31,9 @@
     {!! Form::open(['action' => 'SubjectsController@subjectEdittingImage', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         {{Form::hidden("subjectID", $subject->id)}}
         <b>{{__('messages.subjectImage')}}</b><br>
-        <img src="/storage/file/{{$subject->image}}" height="100" alt="{{$subject->image}}">   
+        <a href="/subject/visit/{{$subject->id}}">
+            <img src="/storage/file/{{$subject->image}}" height="100" alt="{{$subject->image}}">   
+        </a>
         {{Form::file('file')}}
         {{Form::submit('UPLOAD (Maximum 2MB)', ['class' => 'btn btn-outline-primary'])}}
     {!! Form::close() !!}
@@ -51,7 +53,9 @@
     <hr>
     <div class="row">
         <div class="col-md-3">
-            <img src="/storage/file/{{$subject->image}}" height="200" width="200" alt="{{$subject->cover_image}}">   
+            <a href="/subject/visit/{{$subject->id}}">
+                <img src="/storage/file/{{$subject->image}}" height="200" width="200" alt="{{$subject->cover_image}}">   
+            </a>
         </div>
         <div class="col-md-9">
             <b class="text-primary">{{$subject->name}} </b>

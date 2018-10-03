@@ -6,7 +6,9 @@
             @if (Auth::user()->id == $subject->user_id)
                 <a href="/post/edit/{{$post->id}}" class="btn btn-primary">Edit</a> 
             @endif
-            <img src="/storage/file/{{$subject->image}}" height="35" width="35" alt="{{$subject->cover_image}}">
+            <a href="/subject/visit/{{$subject->id}}">
+                <img src="/storage/file/{{$subject->image}}" height="35" width="35" alt="{{$subject->cover_image}}">
+            </a>
             <b>{{$post->title}}</b>
         </div>
         <div class="card-body">

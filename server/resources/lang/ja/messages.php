@@ -45,5 +45,6 @@ return [
     'comment' => 'Comment-> JAPAN',
     'deleteComment' => 'Delete this comment-> JAPAN', 
     'profile' => 'Profile-> JAPAN',
+    'back' => 'Back -> JAPAN',
 ];  
 // '' => '-> JAPAN',

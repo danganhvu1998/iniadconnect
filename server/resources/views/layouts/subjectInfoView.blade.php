@@ -2,7 +2,9 @@
 <hr>
 <div class="row">
     <div class="col-md-3">
-        <img src="/storage/file/{{$subject->image}}" height="200" width="200" alt="{{$subject->cover_image}}">   
+        <a href="/subject/visit/{{$subject->id}}">
+            <img src="/storage/file/{{$subject->image}}" height="200" width="200" alt="{{$subject->cover_image}}">   
+        </a>
     </div>
     <div class="col-md-9">
         <b class="text-primary">{{$subject->name}} </b>

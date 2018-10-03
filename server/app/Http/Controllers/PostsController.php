@@ -120,7 +120,7 @@ class PostsController extends Controller
         if(Auth::user()->type == 3) return 1;
         $subject = Subjects::where("id", $subjectID)->first();
         if($subject->open == 1) return 1;
-        if($ownerID!=Auth::user()->id){
+        if($subject->user_id!=Auth::user()->id){
             return 0;
         }
         return 1;
