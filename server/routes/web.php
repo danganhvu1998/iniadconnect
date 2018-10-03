@@ -30,7 +30,7 @@ Route::post('/user/setting/image', 'UsersController@userSettingImageChange');
 
 Route::post('/user/setting/card_image', 'UsersController@userSettingCardImageChange');
 
-Route::get('/user/view', 'UsersController@userViewingSite');
+Route::get('/user/view/{userID}', 'UsersController@userViewingSite');
 
 // Subject Controller
 Route::get('/subject/view', "SubjectsController@subjectSchoolViewingSite");

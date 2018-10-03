@@ -20,8 +20,12 @@ class UsersController extends Controller
         return view("usersCtrl.finishRegister");
     }
 
-    public function userViewingSite(){
-        return 1;
+    public function userViewingSite($userID){
+        $user = User::where("id", $userID)->first();
+        if($user == null) {
+            return back();
+        }
+        return view("usersCtrl.view")->with("user", $user);
     }
 
     public function userSettingNameChange(request $request){

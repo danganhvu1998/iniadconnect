@@ -44,5 +44,6 @@ return [
     'goodDayToComment' => 'What a good day to comment something beautiful-> JAPAN',
     'comment' => 'Comment-> JAPAN',
     'deleteComment' => 'Delete this comment-> JAPAN', 
+    'profile' => 'Profile-> JAPAN',
 ];  
 // '' => '-> JAPAN',

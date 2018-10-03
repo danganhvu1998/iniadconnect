@@ -44,5 +44,6 @@ return [
     'goodDayToComment' => 'What a good day to comment something beautiful',
     'comment' => 'Comment',
     'deleteComment' => 'Delete this comment', 
+    'profile' => 'Profile',
 ];  
 // '' => '',
