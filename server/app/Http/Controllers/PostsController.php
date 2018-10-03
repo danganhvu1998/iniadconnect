@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Posts;
 use App\Subjects;
 use App\Comments;
+use App\UpVotes;
 
 
 
@@ -101,7 +102,7 @@ class PostsController extends Controller
         return back()->with("message", "messages.informationChanged");
     }
 
-    public function postViewingSite($postID){
+    public function postViewingSiteAA($postID){
         $post = Posts::where("id", $postID)->first();
         $comments = Comments::where("post_id", $postID)
             ->join("users", "users.id", "=", "comments.user_id")
@@ -113,6 +114,47 @@ class PostsController extends Controller
             "comments" => $comments,
             "subject" => $subject,
         );
+        return view("postsCtrl.view")->with($data);
+    }
+
+    public function postViewingSite($postID){
+        $post = Posts::where("id", $postID)->first();
+        $subject = Subjects::where("id", $post->subject_id)->first();
+        $comments = Comments::where("post_id", $postID)
+            ->join("users", "users.id", "=", "comments.user_id")
+            ->select("users.name as user_name", "users.image as user_image", "comments.*")
+            ->get();
+        $commentsLikes = Comments::where("post_id", $postID)
+            ->join("users", "users.id", "=", "comments.user_id")
+            ->join("up_votes", "up_votes.target_id", "=", "comments.id")#
+            ->where("up_votes.target_type", 2)#
+            ->select("target_id", "up_votes.user_id")
+            ->get(); 
+        $commentsLikeCount = array();
+        $commentsLikedByUser = array();
+        foreach($commentsLikes as $like){
+            if(!isset($commentsLikeCount[$like->target_id])){
+                $commentsLikeCount[$like->target_id] = 0;
+            }
+            $commentsLikeCount[$like->target_id]++;
+            if($like->user_id == Auth::user()->id){
+                $commentsLikedByUser[$like->target_id] = 1;
+            }
+        }
+        $postLikeCount = Upvotes::where("target_type", 1)
+            ->where("target_id", $postID)
+            ->count();
+        $postLiked = $this->checkUpvote(1, $postID);
+        $data = array(
+            "postLikeCount" => $postLikeCount,
+            "postLiked" => $postLiked,
+            "post" => $post,
+            "comments" => $comments,
+            "subject" => $subject,
+            "commentsLikeCount" => $commentsLikeCount,
+            "commentsLikedByUser" => $commentsLikedByUser,
+        );
+        #return $data;
         return view("postsCtrl.view")->with($data);
     }
 
@@ -133,5 +175,17 @@ class PostsController extends Controller
             return 0;
         }
         return 1;
+    }
+
+    public function checkUpvote($targetType, $targetID){
+        $upvote = UpVotes::where("user_id", Auth::user()->id)
+            ->where("target_type", $targetType)
+            ->where("target_id", $targetID)
+            ->first();
+        if($upvote==null){
+            return 0;
+        } else {
+            return 1;
+        }
     }
 }

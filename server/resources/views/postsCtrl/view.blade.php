@@ -21,6 +21,14 @@
                     <img src="/storage/file/{{$post->more_image}}" width="100%" alt="{{$post->more_image}}">   
                 </div>
             </div>
+            <hr>
+            <a href="/upvote/1/{{$post->id}}">
+                @if ($postLiked==1)
+                    <img src="/storage/icon/liked.svg" alt="upvote" width="25" height="25">
+                @else
+                    <img src="/storage/icon/notLikeYet.svg" alt="upvote" width="25" height="25">
+                @endif
+            </a> <b>{{$postLikeCount}}</b>
         </div>
         <div class="card-footer">
             {!! Form::open(['action' => 'CommentsController@commentAdding', 'method' => 'POST']) !!}
@@ -37,12 +45,26 @@
                     </div>
                     <div class="col-md-11">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <b>{{$comment->user_name}}</b>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2 text-center">
                                 @if (Auth::user()->id == $comment->user_id)
-                                    <a href="/comment/delete/{{$comment->id}}" class="text-danger">{{__("messages.deleteComment")}}</a>
+                                    <a href="/comment/delete/{{$comment->id}}" class="text-danger">{{__("messages.delete")}}</a>
+                                @endif
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <a href="/upvote/2/{{$comment->id}}">
+                                    @if (isset($commentsLikedByUser[$comment->id]))
+                                        <img src="/storage/icon/liked.svg" alt="upvote" width="25" height="25">
+                                    @else
+                                        <img src="/storage/icon/notLikeYet.svg" alt="upvote" width="25" height="25">
+                                    @endif
+                                </a> 
+                                @if (isset($commentsLikeCount[$comment->id]))
+                                    <b>{{$commentsLikeCount[$comment->id]}}</b>
+                                @else
+                                    <b>0</b>
                                 @endif
                             </div>
                         </div>

@@ -6,6 +6,7 @@
     1. Main Function
         1. Subject
             * This is where students can come and ask their questions about any subject they don't understand. And then other students or teacher will help them to answer.
+            * HR when come to our school can take a look here and find candidates their want easier!
             * Right to access: Anyone can ask and answer any question.
         2. Project
             * This is where students can come and start their project. They can use it promote their project or recruit new member who has save intertest. 

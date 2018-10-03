@@ -73,6 +73,10 @@ Route::get('/comment/delete/{commentID}', "CommentsController@commentDeletingSit
 
 #Route::get('comment/view/{commentID}', "CommentsController@commentViewingSite");
 
+// Upvote Controller
+Route::get('upvote/{targetType}/{targetID}', "UpVotesController@upvote");
+
+#Route::get('gold/{targetType}/{targetID}', "UpVotesController@gold");
 
 //            \\
 #              #
