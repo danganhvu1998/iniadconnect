@@ -68,7 +68,6 @@
                                 @endif
                             </div>
                         </div>
-                        <br>
                         {{$comment->content}}
                     </div>
                 </div>

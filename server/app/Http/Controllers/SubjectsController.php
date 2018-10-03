@@ -25,7 +25,7 @@ class SubjectsController extends Controller
     }
 
     public function subjectViewingSite($subjectType){
-        $subjects = Subjects::where("type", $subjectType)->get();
+        $subjects = Subjects::where("type", $subjectType)->limit(60)->get();
         $data = array(
             "subjectType" => $subjectType,
             "subjects" => $subjects
