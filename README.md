@@ -54,7 +54,7 @@
         * Gold (_Welcome to redINIAD, under thinking_)
         * Title
         * Content
-        * Image
+        * Image 
         * MoreImage (_I know this is stupid, trying to fix_)
         * Timestamps
     
@@ -67,3 +67,10 @@
         * Content
         * Timestamps
 
+    * UpVote Table
+        * ID
+        * UserID
+        * TargetID
+        * TargetType (_1: post, 2:comment_)
+        * VoteType (_1: Up Vote, 10: Gold_)
+        * Timestamps
