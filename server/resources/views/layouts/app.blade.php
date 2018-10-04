@@ -21,13 +21,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar sticky-top navbar-expand-md navbar-light navbar-laravel" style="background-color: #e3f2fd;">
             <div class="container"><!--container-fluid-->
                 <a class="navbar-brand" href="{{ url('/') }}">
                     IniadConnect
