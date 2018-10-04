@@ -139,8 +139,12 @@ class SubjectsController extends Controller
     }
 
     public function subjectVisitingSite($subjectID){
-        $posts = Posts::where("subject_id", $subjectID)->orderBy("id", "desc")->get();
-        $subject = Subjects::where("id", $subjectID)->first();
+        $posts = Posts::where("subject_id", $subjectID)->orderBy("id", "desc")
+            ->join("users", "users.id", "=", "posts.user_id")
+            ->select("posts.*", "users.image as user_image", "users.name as user_name")
+            ->get();
+        $subject = Subjects::where("subjects.id", $subjectID)
+            ->first();
         $postsLikeCount = array();
         $postsLikedByUser = array();
         $postsCommentCount = array();

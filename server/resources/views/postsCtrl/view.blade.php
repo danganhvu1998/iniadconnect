@@ -10,6 +10,12 @@
                 <img src="/storage/file/{{$subject->image}}" height="35" width="35" alt="{{$subject->cover_image}}">
                 <b>{{$subject->name}}</b>
             </a>
+            ->
+            <a href="/user/view/{{$post->user_id}}">
+                <img src="/storage/file/{{$post->user_image}}" height="35" width="35" alt="{{$post->user_image}}">
+                <b>{{$post->user_name}}</b>
+            </a>
+            ->
             <b>{{$post->title}}</b>
         </div>
         <div class="card-body">

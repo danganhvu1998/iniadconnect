@@ -118,7 +118,10 @@ class PostsController extends Controller
     }
 
     public function postViewingSite($postID){
-        $post = Posts::where("id", $postID)->first();
+        $post = Posts::where("posts.id", $postID)
+            ->join("users", "users.id", "=", "posts.user_id")
+            ->select("posts.*", "users.image as user_image", "users.name as user_name")
+            ->first();
         $subject = Subjects::where("id", $post->subject_id)->first();
         $comments = Comments::where("post_id", $postID)
             ->join("users", "users.id", "=", "comments.user_id")
