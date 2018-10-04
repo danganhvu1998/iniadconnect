@@ -124,6 +124,9 @@ class PostsController extends Controller
             ->join("users", "users.id", "=", "comments.user_id")
             ->select("users.name as user_name", "users.image as user_image", "comments.*")
             ->get();
+        $commentsCount = Comments::where("post_id", $postID)
+            ->join("users", "users.id", "=", "comments.user_id")
+            ->count();
         $commentsLikes = Comments::where("post_id", $postID)
             ->join("users", "users.id", "=", "comments.user_id")
             ->join("up_votes", "up_votes.target_id", "=", "comments.id")#
@@ -146,6 +149,7 @@ class PostsController extends Controller
             ->count();
         $postLiked = $this->checkUpvote(1, $postID);
         $data = array(
+            "commentsCount" => $commentsCount,
             "postLikeCount" => $postLikeCount,
             "postLiked" => $postLiked,
             "post" => $post,

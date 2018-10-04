@@ -8,6 +8,7 @@
             @endif
             <a href="/subject/visit/{{$subject->id}}">
                 <img src="/storage/file/{{$subject->image}}" height="35" width="35" alt="{{$subject->cover_image}}">
+                <b>{{$subject->name}}</b>
             </a>
             <b>{{$post->title}}</b>
         </div>
@@ -22,13 +23,20 @@
                 </div>
             </div>
             <hr>
-            <a href="/upvote/1/{{$post->id}}">
-                @if ($postLiked==1)
-                    <img src="/storage/icon/liked.svg" alt="upvote" width="25" height="25">
-                @else
-                    <img src="/storage/icon/notLikeYet.svg" alt="upvote" width="25" height="25">
-                @endif
-            </a> <b>{{$postLikeCount}}</b>
+            <span>
+                <a href="/upvote/1/{{$post->id}}">
+                    @if ($postLiked==1)
+                        <img src="/storage/icon/liked.svg" alt="upvote" width="25" height="25">
+                    @else
+                        <img src="/storage/icon/notLikeYet.svg" alt="upvote" width="25" height="25">
+                    @endif
+                </a> 
+                <b>{{$postLikeCount}}</b>
+            </span>
+            <span>
+                <img src="/storage/icon/comment.svg" alt="comment" width="25" height="25">
+                <b>{{$commentsCount}}</b>
+            </span>
         </div>
         <div class="card-footer">
             {!! Form::open(['action' => 'CommentsController@commentAdding', 'method' => 'POST']) !!}

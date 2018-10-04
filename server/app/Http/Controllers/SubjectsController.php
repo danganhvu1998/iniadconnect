@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Subjects;
 use App\Posts;
+use App\UpVotes;
+use App\Comments;
 
 class SubjectsController extends Controller
 {
@@ -139,10 +141,43 @@ class SubjectsController extends Controller
     public function subjectVisitingSite($subjectID){
         $posts = Posts::where("subject_id", $subjectID)->orderBy("id", "desc")->get();
         $subject = Subjects::where("id", $subjectID)->first();
+        $postsLikeCount = array();
+        $postsLikedByUser = array();
+        $postsCommentCount = array();
+        $postsLike = Posts::where("subject_id", $subjectID)
+            ->orderBy("posts.id", "desc")
+            ->join("up_votes", "up_votes.target_id", "=", "posts.id")
+            ->where("target_type", 1)
+            ->select("target_id", "up_votes.user_id")
+            ->get();
+        foreach($postsLike as $like){
+            if(!isset($postsLikeCount[$like->target_id])){
+                $postsLikeCount[$like->target_id] = 0;
+            }
+            $postsLikeCount[$like->target_id]++;
+            if($like->user_id == Auth::user()->id){
+                $postsLikedByUser[$like->target_id] = 1;
+            }
+        }
+        $postsComment = Posts::where("subject_id", $subjectID)
+            ->orderBy("posts.id", "desc")
+            ->join("comments", "comments.post_id", "=", "posts.id")
+            ->select("post_id")
+            ->get();
+        foreach($postsComment as $cmt){
+            if(!isset($postsCommentCount[$cmt->post_id])){
+                $postsCommentCount[$cmt->post_id] = 0;
+            }
+            $postsCommentCount[$cmt->post_id]++;
+        }
         $data = array(
+            "postsCommentCount" => $postsCommentCount,
+            "postsLikeCount" => $postsLikeCount,
+            "postsLikedByUser" => $postsLikedByUser,
             "subject" => $subject,
             "posts" => $posts,
         );
+        #return $data;
         return view("subjectsCtrl.visit")->with($data);
     }
 

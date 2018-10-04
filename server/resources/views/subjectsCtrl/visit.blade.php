@@ -55,6 +55,7 @@
                         @endif
                         <a href="/subject/visit/{{$subject->id}}">
                             <img src="/storage/file/{{$subject->image}}" height="35" width="35" alt="{{$subject->cover_image}}">
+                            <b>{{$subject->name}}</b>
                         </a>
                         <a href="/post/view/{{$post->id}}"><b class="text-dark">{{$post->title}}</b></a>
                     </div>
@@ -70,7 +71,39 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        Like, Gold and Comment are coming soon!
+                        <div class="row">
+                            <div class="col-md-10">
+                                <a href="/upvote/1/{{$post->id}}">
+                                    <span>
+                                        @if (isset($postsLikedByUser[$post->id]))   
+                                            <img src="/storage/icon/liked.svg" alt="upvote" width="25" height="25">
+                                        @else
+                                            <img src="/storage/icon/notLikeYet.svg" alt="upvote" width="25" height="25">
+                                        @endif
+                                        @if (isset($postsLikeCount[$post->id]))
+                                            <b>{{$postsLikeCount[$post->id]}}</b>
+                                        @else
+                                            <b>0</b>
+                                        @endif
+                                    </span>
+                                </a>
+                                <a href="/post/view/{{$post->id}}">
+                                    <span>
+                                        <img src="/storage/icon/comment.svg" alt="upvote" width="25" height="25">
+                                        @if (isset($postsCommentCount[$post->id]))
+                                            <b>{{$postsCommentCount[$post->id]}}</b>
+                                        @else
+                                            <b>0</b>
+                                        @endif
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="/post/view/{{$post->id}}" class="btn btn-primary btn-block">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div><br>
             @endforeach
