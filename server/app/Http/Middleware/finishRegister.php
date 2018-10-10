@@ -21,7 +21,7 @@ class finishRegister
         if(!Auth::check()){
             return $next($request);
         }
-        if(stristr($currentUrl, "user/setting") || stristr($currentUrl, "logout") ){
+        if(stristr($currentUrl, "user/setting") || stristr($currentUrl, "logout") || stristr($currentUrl, "intro") ){
             return $next($request);
         } else if(Auth::user()->type <= 0){
             return redirect("/user/setting/setting");

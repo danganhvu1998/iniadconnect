@@ -5,7 +5,7 @@
 return [
     'welcome' => 'Welcome to our application',
     'dashboard' => 'Dashboard',
-    'logout' => 'Logout',
+    'logout' => 'ログアウト',
     'waitAdminConfirmNewUser' => 'Please wait until admin approve your register request. And don\'t forger that you HAVE TO upload your student card',
     'adminRejectedNewUser' => 'Something not right in your infomation. Please carefully check again',
     'adminBannedUser' => 'You were banned because of bad online behavior. Please do not repeat it after we allow you to continue',
@@ -45,5 +45,6 @@ return [
     'comment' => 'Comment',
     'deleteComment' => 'Delete this comment', 
     'profile' => 'Profile',
+    'back' => 'Back ',
 ];  
 // '' => '',

@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect("/home");
 });
+
 
 Auth::routes();
 
@@ -87,6 +88,10 @@ Route::get('upvote/{targetType}/{targetID}', "UpVotesController@upvote");
 //            \\
 
 // Admin User Controller
+Route::get('/admin', function () {
+    return redirect("/admin/user/view/0");
+});
+
 Route::get('/admin/user/view/{userType}', 'AdminUsersController@usersViewSite');
 
 Route::get('/admin/user/reset_password/{userID}', 'AdminUsersController@resetUserPassword');

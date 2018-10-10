@@ -35,7 +35,7 @@
             <img src="/storage/file/{{$subject->image}}" height="100" alt="{{$subject->image}}">   
         </a>
         {{Form::file('file')}}
-        {{Form::submit('UPLOAD (Maximum 2MB)', ['class' => 'btn btn-outline-primary'])}}
+        {{Form::submit('UPLOAD (Maximum 1MB)', ['class' => 'btn btn-outline-primary'])}}
     {!! Form::close() !!}
 
     <!--Change Cover Image--> <hr>
@@ -44,7 +44,7 @@
         <b>{{__('messages.subjectCoverImage')}}</b><br>
         <img src="/storage/file/{{$subject->cover_image}}" height="100" alt="{{$subject->cover_image}}">   
         {{Form::file('file')}}
-    {{Form::submit('UPLOAD (Maximum 2MB)', ['class' => 'btn btn-outline-primary'])}}
+    {{Form::submit('UPLOAD (Maximum 1MB)', ['class' => 'btn btn-outline-primary'])}}
     {!! Form::close() !!}
     
     <hr><hr>

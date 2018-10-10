@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 class HomeController extends Controller
 {
     /**
@@ -22,7 +24,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $teamMembers = User::where("id", ">", 1)
+            ->where("id", "<", 8)
+            ->get();
+        return view('home')->with("teamMembers", $teamMembers);
     }
 }

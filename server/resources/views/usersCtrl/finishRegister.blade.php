@@ -44,7 +44,7 @@
         <b>{{__('messages.userProfilePicture')}}</b><br>
         <img src="/storage/file/{{Auth::user()->image}}" height="100" alt="{{Auth::user()->image}}">   
         {{Form::file('file')}}
-    {{Form::submit('UPLOAD (Maximum 2MB)', ['class' => 'btn btn-outline-primary'])}}
+    {{Form::submit('UPLOAD (Maximum 1MB)', ['class' => 'btn btn-outline-primary'])}}
     {!! Form::close() !!}
 
     <!--Change Card Image--> <hr>
@@ -55,6 +55,9 @@
         <b>{{__('messages.userCardPicture')}}</b><br>
         <img src="/storage/file/{{Auth::user()->card_image}}" height="100" alt="{{Auth::user()->card_image}}">   
         {{Form::file('file')}}
-    {{Form::submit('UPLOAD (Maximum 2MB)', ['class' => 'btn btn-outline-primary'])}}
+    {{Form::submit('UPLOAD (Maximum 1MB)', ['class' => 'btn btn-outline-primary'])}}
     {!! Form::close() !!}
+    @if (Auth::user()->type == 0)
+        
+    @endif
 @endsection
