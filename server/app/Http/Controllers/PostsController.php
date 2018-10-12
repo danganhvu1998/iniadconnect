@@ -29,6 +29,9 @@ class PostsController extends Controller
             'file1' => 'image',
             'file2' => 'image',
         ]);
+        
+        $request->postTitle = $this->tagToString($request->postTitle);
+        $request->postContent = $this->tagToString($request->postContent);
 
         $post = new Posts;
         $post->title = $request->postTitle;
@@ -74,6 +77,9 @@ class PostsController extends Controller
             'file2' => 'image',
         ]);
         $post = Posts::where("id", $request->postID)->first();
+        //Tag To String
+        $request->postTitle = $this->tagToString($request->postTitle);
+        $request->postContent = $this->tagToString($request->postContent);
         Posts::where("id", $request->postID)
             ->update([
                 "title" => $request->postTitle,
@@ -194,5 +200,18 @@ class PostsController extends Controller
         } else {
             return 1;
         }
+    }
+
+    public function tagToString($string){
+        
+        $string = str_replace('<br />', 'idkhtx', $string);
+        $string = str_replace('"', '&quot', $string);
+        #$string = str_replace('&', '&amp', $string);
+        $string = str_replace('<', '&lt', $string);
+        $string = str_replace('>', '&gt', $string);
+        $string = str_replace('idkhtx', '<br />', $string);
+        $string = nl2br($string);
+        $string = preg_replace('/(?:\s*<br[^>]*>\s*){2,}/s', "<br />", $string);
+        return $string;
     }
 }

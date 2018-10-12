@@ -66,7 +66,7 @@
                         <a href="/post/view/{{$post->id}}"><b>{{$post->title}}</b></a>
                     </div>
                     <div class="card-body">
-                        <p>{{$post->content}}</p><hr>
+                        {!!$post->content!!}<hr>
                         <div class="row">
                             @if (isset($post->image) and isset($post->more_image))
                                 <div class="col-md-6">
