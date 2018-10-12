@@ -14,6 +14,8 @@
         <div class="col-md-4">
             @if ($subjectType == 1)
                 <a href="/subject/add/1" class="btn btn-primary btn-block">{{__("messages.addNewProject")}}</a>
+            @elseif(Auth::user()->type == 3)
+                <a href="/subject/add/0" class="btn btn-primary btn-block">{{__("messages.addNewSubject")}}</a>
             @endif
         </div>
     </div><hr>

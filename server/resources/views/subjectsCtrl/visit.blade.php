@@ -13,7 +13,7 @@
             <b class="text-primary">{{$subject->name}} </b>
             「 {{$subject->quote}} 」
             <hr>
-            @if (Auth::user()->id == $subject->user_id)
+            @if (Auth::user()->id == $subject->user_id or Auth::user()->type == 3)
                 <div class="row">
                     <div class="col-md-4">
                         <a href="/subject/edit/{{$subject->id}}" class="btn btn-block btn-primary">{{__("messages.editSubject")}}</a>
