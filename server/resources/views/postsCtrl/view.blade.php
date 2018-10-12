@@ -21,12 +21,19 @@
         <div class="card-body">
             <p>{{$post->content}}</p><hr>
             <div class="row">
-                <div class="col-md-6">
-                    <img src="/storage/file/{{$post->image}}" width="100%" alt="{{$post->image}}">   
-                </div>
-                <div class="col-md-6">
-                    <img src="/storage/file/{{$post->more_image}}" width="100%" alt="{{$post->more_image}}">   
-                </div>
+                @if (isset($post->image) and isset($post->more_image))
+                    <div class="col-md-6">
+                        <img src="/storage/file/{{$post->image}}" width="100%" alt="{{$post->image}}">   
+                    </div>
+                    <div class="col-md-6">
+                        <img src="/storage/file/{{$post->more_image}}" width="100%" alt="{{$post->more_image}}">   
+                    </div>  
+                @else
+                    <div class="col-md-12">
+                        <img src="/storage/file/{{$post->image}}" width="100%" alt="">   
+                        <img src="/storage/file/{{$post->more_image}}" width="100%" alt="">   
+                    </div>
+                @endif
             </div>
             <hr>
             <span>

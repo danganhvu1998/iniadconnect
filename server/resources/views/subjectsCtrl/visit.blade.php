@@ -55,25 +55,32 @@
                         @endif
                         <a href="/subject/visit/{{$subject->id}}">
                             <img src="/storage/file/{{$subject->image}}" height="35" width="35" alt="{{$subject->cover_image}}">
-                            <b>{{$subject->name}}</b>
+                            <b class="text-muted">{{$subject->name}}</b>
                         </a>
                         ->
                         <a href="/user/view/{{$post->user_id}}">
                             <img src="/storage/file/{{$post->user_image}}" height="35" width="35" alt="{{$post->user_image}}">
-                            <b>{{$post->user_name}}</b>
+                            <b class="text-muted">{{$post->user_name}}</b>
                         </a>
                         ->
-                        <a href="/post/view/{{$post->id}}"><b class="text-dark">{{$post->title}}</b></a>
+                        <a href="/post/view/{{$post->id}}"><b>{{$post->title}}</b></a>
                     </div>
                     <div class="card-body">
                         <p>{{$post->content}}</p><hr>
                         <div class="row">
-                            <div class="col-md-6">
-                                <img src="/storage/file/{{$post->image}}" width="100%" alt="{{$post->image}}">   
-                            </div>
-                            <div class="col-md-6">
-                                <img src="/storage/file/{{$post->more_image}}" width="100%" alt="{{$post->more_image}}">   
-                            </div>
+                            @if (isset($post->image) and isset($post->more_image))
+                                <div class="col-md-6">
+                                    <img src="/storage/file/{{$post->image}}" width="100%" alt="{{$post->image}}">   
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="/storage/file/{{$post->more_image}}" width="100%" alt="{{$post->more_image}}">   
+                                </div>  
+                            @else
+                                <div class="col-md-12">
+                                    <img src="/storage/file/{{$post->image}}" width="100%" alt="">   
+                                    <img src="/storage/file/{{$post->more_image}}" width="100%" alt="">   
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="card-footer">
