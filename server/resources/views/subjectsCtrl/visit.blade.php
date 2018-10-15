@@ -18,7 +18,7 @@
                     <div class="col-md-4">
                         <a href="/subject/edit/{{$subject->id}}" class="btn btn-block btn-primary">{{__("messages.editSubject")}}</a>
                         <a href="" class="btn btn-block btn-primary">{{__("messages.aboutUs")}}</a>
-                        <a href="" class="btn btn-block btn-primary">{{__("messages.donate")}}</a>
+                        <a href="#donate" class="btn btn-block btn-primary">{{__("messages.donate")}}</a>
                     </div>
                 </div>
             @endif

@@ -46,5 +46,8 @@ return [
     'deleteComment' => 'Delete this comment-> JAPAN', 
     'profile' => 'Profile-> JAPAN',
     'back' => 'Back -> JAPAN',
+    'addNewSubject' => 'Add New School Subject -> JAPAN',
+    'subjectCoverImage' => 'Cover Image -> JAPAN',
+    'subjectImage' => 'Profile Image -> JAPAN',
 ];  
 // '' => '-> JAPAN',
