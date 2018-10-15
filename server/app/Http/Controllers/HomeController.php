@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Subjects;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,11 @@ class HomeController extends Controller
         $teamMembers = User::where("id", ">", 1)
             ->where("id", "<", 8)
             ->get();
-        return view('home')->with("teamMembers", $teamMembers);
+        $teamImage = Subjects::where("id", 2)->first()->cover_image;
+        $data = array(
+            "teamMembers" =>  $teamMembers,
+            "teamImage" => $teamImage
+        );
+        return view('home')->with($data);
     }
 }

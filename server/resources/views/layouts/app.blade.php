@@ -32,6 +32,7 @@
         <nav class="navbar sticky-top navbar-expand-md navbar-light navbar-laravel" style="background-color: #e3f2fd;">
             <div class="container"><!--container-fluid-->
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="/storage/icon/smallIcon.gif" alt="" width="30" height="30">
                     イニトモ
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

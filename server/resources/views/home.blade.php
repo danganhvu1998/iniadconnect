@@ -20,6 +20,8 @@
     <br><br><br><br><br><br>    
     <h1 class="text-center">Our Super Amazing Team</h1>
     <br><br>
+    <img src="/storage/file/{{$teamImage}}" alt="" style="height: 100%; width: 100%; object-fit: contain"><br><br>
+    <br><br>
     <div class="row">
         @foreach ($teamMembers as $member)
             <div class="col-md-4 text-center">
