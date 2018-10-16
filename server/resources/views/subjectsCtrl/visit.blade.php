@@ -50,7 +50,7 @@
             @foreach ($posts as $post)
                 <div class="card bg-muted">
                     <div class="card-header">
-                        @if (Auth::user()->id == $subject->user_id)
+                        @if (Auth::user()->id == $post->user_id)
                             <a href="/post/edit/{{$post->id}}" class="btn btn-primary">{{__("messages.edit")}}</a> 
                         @endif
                         <a href="/subject/visit/{{$subject->id}}">

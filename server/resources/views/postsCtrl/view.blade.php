@@ -3,8 +3,8 @@
 @section('content')
     <div class="card bg-muted">
         <div class="card-header">
-            @if (Auth::user()->id == $subject->user_id)
-                <a href="/post/edit/{{$post->id}}" class="btn btn-primary">Edit</a> 
+            @if (Auth::user()->id == $post->user_id)
+                <a href="/post/edit/{{$post->id}}" class="btn btn-primary">{{__("messages.edit")}}</a> 
             @endif
             <a href="/subject/visit/{{$subject->id}}">
                 <img src="/storage/file/{{$subject->image}}" height="35" width="35" alt="{{$subject->cover_image}}">
