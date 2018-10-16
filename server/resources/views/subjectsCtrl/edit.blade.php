@@ -24,7 +24,7 @@
             </div>
             {{Form::text("subjectQuote", $subject->quote,['class'=>'form-control'])}}
         </div>
-        {{Form::submit('Save', ['class' => 'btn btn-outline-primary'])}}
+        {{Form::submit(__('messages.save'), ['class' => 'btn btn-outline-primary'])}}
     {!! Form::close() !!}
 
         <!--Change Image--> <hr>
