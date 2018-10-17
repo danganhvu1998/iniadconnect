@@ -49,6 +49,7 @@ return [
     'addNewSubject' => '新しい科目追加',
     'subjectCoverImage' => 'カバー写真’',
     'subjectImage' => 'プロフィール写真',
+    'forgotPassword' => 'In case of forgetting your password, please contact 「s1f101800058@iniad.org」 with your registed email',
 
 ]; 
 // '' => '',
