@@ -49,5 +49,6 @@ return [
     'addNewSubject' => 'Add New School Subject',
     'subjectCoverImage' => 'Cover Image',
     'subjectImage' => 'Profile Image',
+    'forgotPassword' => 'In case of forgetting your password, please contact 「s1f101800058@iniad.org」 with your registed email',
 ];  
 // '' => '',
