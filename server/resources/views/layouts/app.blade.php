@@ -109,6 +109,11 @@
                     </div>
                 @endif
                 @yield('content')
+                <div class="text-center text-muted">
+                    <hr>
+                    Thank you for using Initomo. You can find Initomo's source code <a href="https://github.com/danganhvu1998/iniadconnect">here</a>
+                </div>
+                <!--
                 <div id="donate" class="text-center">
                         <hr>
                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -127,6 +132,7 @@
                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                         </form>
                 </div>
+                -->
             </div>
         </main>
     </div>
